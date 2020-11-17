@@ -1,0 +1,7 @@
+<h1>This is my index page</h1>
+<h2>Hello there!</h2>
+
+{% for post in posts %}
+    <h1><a href="post/{{ post.slug }}">{{ post.title }}</a> </h1>
+    <p>{{ post.summary }}</p>
+{% endfor %}
