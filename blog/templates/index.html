@@ -1,14 +1,11 @@
-{% load static %}
-<link rel=stylesheet type="text/css" href="{% static 'css/style.css' %}"/>
+{% extends 'base.html' %}
 
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% block content %}
+    <h1>This is my index page</h1>
+    <h2>Hello there!</h2>
 
-<h1>This is my index page</h1>
-<h2>Hello there!</h2>
-
-{% for post in posts %}
-    <h1><a href="post/{{ post.slug }}">{{ post.title }}</a> </h1>
-    <p>{{ post.summary }}</p>
-{% endfor %}
+    {% for post in posts %}
+        <h1><a href="post/{{ post.slug }}">{{ post.title }}</a> </h1>
+        <p>{{ post.summary }}</p>
+    {% endfor %}
+{% endblock %}
