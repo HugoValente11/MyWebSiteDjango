@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div content="container">
+
+    <style>
+    .sidenav {
+        height: 100%;
+        width: 130px;
+        position: fixed;
+        z-index: 1;
+        top: 55px;
+        left: 0px;
+        background: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .main {
+        margin-left: 140px; /* Same width as the sidebar + left position in px */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+</style>
+
+        <div class="sidenav">
+            {% for post in posts %}
+                <div>
+                    <div class="summary-title"><a href="//127.0.0.1:8000/post/{{ post.slug }}">{{ post.title }}</a></div>
+                    <div class="summary">{{ post.summary }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="main">
+            {% block entry %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

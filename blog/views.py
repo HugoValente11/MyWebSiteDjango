@@ -11,7 +11,7 @@ def index(request):
 
 def post(request, slug):
     print(slug)
-    return render(request, 'post.html', {'post': get_object_or_404(Post, slug=slug)})
+    return render(request, 'post.html', {'post': get_object_or_404(Post, slug=slug), 'posts': Post.objects.all()})
 
 
 def about(request):
