@@ -5,7 +5,14 @@
     <h2>Hello there!</h2>
 
     {% for post in posts %}
-        <h1><a href="post/{{ post.slug }}">{{ post.title }}</a> </h1>
-        <p>{{ post.summary }}</p>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" style="background:url({{ post.image.url }}">
+                <h5 class="card-title">{{ post.title }} </h5>
+                <p>{{ post.summary }}</p>
+                <a href="post/{{ post.slug }}" class="btn btn-primary">Go to post</a>
+            </div>
+        </div>
+
     {% endfor %}
 {% endblock %}
